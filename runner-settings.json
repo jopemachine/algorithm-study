@@ -1,0 +1,25 @@
+{
+	"cpp": {
+		"compiler": "g++",
+		"std": "gnu++17"
+	},
+	"c": {
+		"compiler": "g++",
+		"std": "gnu++17"
+	},
+	"javascript": {
+		"nodeVersion": 10
+	},
+	"go": {},
+	"java": {
+		"javaVersion": 11
+	},
+	"swift": {},
+	"ruby": {},
+	"kotlin": {},
+	"d": {},
+	"python": {},
+	"rust": {
+		"rustEdition": 2018
+	}
+}
