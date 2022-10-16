@@ -25,20 +25,44 @@ D1, D2, ..., DN이 공백을 사이로 주어진다. 셋째 줄부터 K+2줄까
 건설순서는 모든 건물이 건설 가능하도록 주어진다.
 ==============================================================================================
 '''
+from math import inf
+from heapq import heappush, heappop
 
 T = int(input())
 
 for _ in range(T):
   N, K = map(int, input().split())
-  Ds = map(int, input().split())
-  _map = [[False] * N for _ in range(N)]
+  Ds = list(map(int, input().split()))
 
-  for r, c in [list(map(int, input().split())) for _ in range(K)]:
-    _map[r - 1][c - 1] = True
+  _map = [[False] * N for _ in range(N)]
+  indegrees = [0] * N
+
+  for s, e in [list(map(int, input().split())) for _ in range(K)]:
+    _map[s - 1][e - 1] = True
+    indegrees[e - 1] += 1
 
   W = int(input())
 
-  visited = [[False] * N for _ in range(N)]
+  min_heap = []
 
-  def dfs(u):
-    
+  for i in range(N):
+    if indegrees[i] == 0:
+      heappush(min_heap, (Ds[i], i))
+
+  min_cost = inf
+
+  while min_heap:
+    total_cost, curr = heappop(min_heap)
+
+    if curr == W - 1:
+      min_cost = total_cost
+      break
+
+    for next in range(N):
+      if _map[curr][next]:
+        indegrees[next] -= 1
+
+        if indegrees[next] <= 0:
+          heappush(min_heap, (total_cost + Ds[next], next))
+
+  print(min_cost)
