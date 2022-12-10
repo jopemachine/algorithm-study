@@ -19,6 +19,6 @@
 
 N, M = map(int, input().split())
 
-x = int(N / 100)
+x = N // M
 print(x)
-print(N % 10)
+print(N % M)
