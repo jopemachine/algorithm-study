@@ -36,15 +36,14 @@ constexpr bool LOCAL = false;
 #else
 constexpr bool LOCAL = true;
 #endif
+
 int main() {
   _FASTIOS;
-
-  cerr << "Test\n" << '\n';
 
   cout << "         ,r'\"7\n";
   cout << "r`-_   ,'  ,/\n";
   cout << " \\. \". L_r'\n";
-  cout << "`   ~\\/\n";
+  cout << "   `~\\/\n";
   cout << "      |\n";
   cout << "      |\n";
 
