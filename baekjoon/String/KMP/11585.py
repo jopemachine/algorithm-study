@@ -24,7 +24,7 @@
 '''
 
 
-def get_partial_search(s):
+def get_partial_table(s):
     pi = [0] * len(s)
     begin, matched = 1, 0
     while begin + matched < len(s):
@@ -43,7 +43,7 @@ def get_partial_search(s):
 def kmp(h, n):
     ans = []
     begin, matched = 0, 0
-    pi = get_partial_search(n)
+    pi = get_partial_table(n)
 
     while begin <= len(h) - len(n):
         if matched < len(n) and h[begin + matched] == n[matched]:
