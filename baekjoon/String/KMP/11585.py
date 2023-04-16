@@ -28,7 +28,7 @@ def get_partial_table(s):
     pi = [0] * len(s)
     begin, matched = 1, 0
     while begin + matched < len(s):
-        if s[begin + matched - 1] == s[matched]:
+        if s[begin + matched] == s[matched]:
             matched += 1
             pi[begin + matched - 1] = matched
         else:
@@ -63,7 +63,7 @@ N = int(input())
 want = input().split()
 curr = input().split()
 
-cnt = len(kmp(curr + curr[:-1], curr))
+cnt = len(kmp(curr + curr[:-1], want))
 
 if N % cnt == 0:
     N = N // cnt
